@@ -1,0 +1,91 @@
+<!-- Navigation -->
+<nav class="navbar bg-primary navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href={% url 'index' %}> {{config.title}} </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link waves-effect" href="{% url 'index' %}">
+            <i class="bi bi-house"></i> Home
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Blogs By Category
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            {% for category in categories %}
+            <a class="dropdown-item" href="{% url 'category_items' category=category.name %}">
+              {{category.name}}</a>
+            {% endfor %}
+          </div>
+        </li>
+
+        {% if request.user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link waves-effect" href="{% url 'create_blog' %}">
+            <i class="bi bi-plus-square"></i> Create Blog
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <i class="bi bi-person-circle"></i>
+            {{ request.user.username}}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            {% comment %} <a class="dropdown-item" href="{% url 'account_change_password' %}"><i class="bi bi-key"></i>
+              Change
+              Password</a>
+            <a class="dropdown-item" href="{% url 'account_email' %}"><i class="bi bi-envelope"></i> Email
+              Management</a>
+            <a class="dropdown-item" href="{% url 'socialaccount_connections' %}"><i class="bi bi-google"></i>
+              Connection with Social Accounts</a> {% endcomment %}
+            {% comment %} <a class="dropdown-item" href="{% url 'user_profile' username=request.user.username %}"><i
+                class="bi bi-info"></i>
+              Profile</a> {% endcomment %}
+            {% comment %} <div class="dropdown-divider"></div> {% endcomment %}
+            <a class="dropdown-item" href="{% url 'profile' username=request.user.username %}">
+              <i class="bi bi-person-circle"></i>
+              My Profile</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{% url 'account_logout' %}">
+              <i class="fas fa-sign-out-alt"></i>
+              Logout</a>
+          </div>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link waves-effect" href="{% url 'account_login' %}">
+            <i class="bi bi-box-arrow-right"></i>
+            Login
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-effect" href="{% url 'account_signup' %}">
+            <i class="bi bi-person-plus"></i>
+            Signup
+          </a>
+        </li>
+        {% endif %}
+        <li class="nav-item">
+          <a class="nav-link waves-effect" href="{% url 'privacy_policy' %}">
+            <i class="bi bi-shield-lock"></i>
+            Privacy Policy
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-effect" href="{% url 'contact' %}">
+            <i class="bi bi-person-lines-fill"></i>
+            Contact Us
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

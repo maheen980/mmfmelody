@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% load crispy_forms_tags %}
+
+{% block page_title %}Create Blog{% endblock page_title %}
+{% block meta_title %}"Create Blog"{% endblock meta_title %}
+{% block twitter_title %}"Create Blog"{% endblock twitter_title %}
+{% block og_title %}"Create Blog"{% endblock og_title %}
+
+{% block meta_description %}"{{config.description}}"{% endblock meta_description %}
+{% block twitter_description %}"{{config.description}}"{% endblock twitter_description %}
+{% block og_description %}"{{config.description}}"{% endblock og_description %}
+
+{% block meta_author %}"{{config.author}}"{% endblock meta_author %}
+
+{% block keywords %}"{{config.keywords}}"{% endblock keywords %}
+
+{% block og_url %}{{config.url}}{{request.path}}{% endblock og_url %}
+{% block twitter_url %}{{config.url}}{{request.path}}{% endblock twitter_url %}
+
+{% block twitter_image %}{{config.favicon.url}}{% endblock twitter_image %}
+{% block og_image %}{{config.favicon.url}}{% endblock og_image %}
+
+{% block og_sitename %}{{config.title}}{% endblock og_sitename %}
+{% block canonical_url %}{{config.url}}{{request.path}}{% endblock canonical_url %}
+
+{% block content %}
+
+<main class="my-3">
+    <h2>Create New Blog</h2>
+    <form action="{% url 'create_blog' %}" enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        {{form.media}}
+        {{form|crispy}}
+        <button class="btn btn-primary" type="submit">Create Blog</button>
+    </form>
+</main>
+{% endblock content %}

@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>
+    {% block page_title %}{{config.title}}{% endblock page_title %}
+  </title>
+  <!-- Adsense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6818845587162457"
+    crossorigin="anonymous"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G41K4KMCZ2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-G41K4KMCZ2');
+</script>
+
+  <link rel="manifest" href="{% static 'manifest.json' %}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="title" content={% block meta_title %}{% endblock meta_title %} />
+  <meta name="author" content={% block meta_author %}{% endblock meta_author %} />
+  <meta name="description" content={% block meta_description %}{% endblock meta_description %} />
+  <meta name="keywords" content={% block keywords %}{% endblock keywords %} />
+  <link rel="canonical" href="{% block canonical_url %}{% endblock canonical_url %}" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={% block og_url %}{% endblock og_url %} />
+  <meta property="og:title" content={% block og_title %}{% endblock og_title %} />
+  <meta property="og:description" content={% block og_description %}{% endblock og_description %} />
+  <meta property="og:image" content={% block og_image %}{% endblock og_image %} />
+  <meta property="og:site_name" content={% block og_sitename %}{% endblock og_sitename %} />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content={% block twitter_url %}{% endblock twitter_url %} />
+  <meta property="twitter:title" content={% block twitter_title %}{% endblock twitter_title %} />
+  <meta property="twitter:description" content={% block twitter_description %}{% endblock twitter_description %} />
+  <meta property="twitter:image" content={% block twitter_image %}{% endblock twitter_image %} />
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="120x120" href={{config.favicon.url}} />
+  <link rel="icon" type="image/png" sizes="32x32" href={{config.favicon.url}} />
+  <link rel="icon" type="image/png" sizes="16x16" href={{config.favicon.url}} />
+
+  {% include 'includes/styles.html' %}
+</head>
+
+<body class="bg-image">
+  {%include 'includes/preloader.html' %}
+  {% include 'includes/navbar.html' %}
+  {% include 'includes/alerts.html' %}
+  {% block header_content %}{% endblock header_content %}
+  <div class="container">{% block content %}{% endblock content %}</div>
+
+  {% include 'includes/footer.html' %} {% include 'includes/scripts.html' %}
+</body>
+
+</html>

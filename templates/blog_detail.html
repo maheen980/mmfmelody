@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% load crispy_forms_tags %}
+
+{% block page_title %}{{object.title}}{% endblock page_title %}
+{% block meta_title %}"{{object.title}}"{% endblock meta_title %}
+{% block twitter_title %}"{{object.title}}"{% endblock twitter_title %}
+{% block og_title %}"{{object.title}}"{% endblock og_title %}
+
+{% block meta_description %}"{{object.description}}"{% endblock meta_description %}
+{% block twitter_description %}"{{object.description}}"{% endblock twitter_description %}
+{% block og_description %}"{{object.description}}"{% endblock og_description %}
+
+{% block meta_author %}"{{config.author}}"{% endblock meta_author %}
+
+{% block keywords %}"{{object.keywords}}"{% endblock keywords %}
+
+{% block og_url %}{{config.url}}{{request.path}}{% endblock og_url %}
+{% block twitter_url %}{{config.url}}{{request.path}}{% endblock twitter_url %}
+
+{% block twitter_image %}{{config.favicon.url}}{% endblock twitter_image %}
+{% block og_image %}{{config.favicon.url}}{% endblock og_image %}
+
+{% block og_sitename %}{{config.title}}{% endblock og_sitename %}
+{% block canonical_url %}{{config.url}}{{request.path}}{% endblock canonical_url %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-9 col-md-10 ml-auto mr-auto">
+        <p class="mt-4"><a class="lead text-danger h4"
+                href={% url 'category_items' category=object.category.name %}>{{object.category.name}}</a></p>
+
+        <h1 class="h2">{{object.title}}</h1>
+        <p class="lead text-muted">{{object.description}}</p>
+        <div>
+            <div class="row">
+                <div class="">
+                    <img width="100" src="{{user_profile.image.url}}" alt=""></div>
+                <div class="col mt-2">
+                    <a class="h5" href="{% url 'profile' username=object.user.username %}">{{object.user}}</a>
+                    <p class="text-muted">{{object.user.first_name}} {{object.user.last_name}}</p>
+                </div>
+            </div>
+        </div>
+        <p class="h6">
+            <span class="text-danger mr-1"><i class="bi bi-clock"></i> {{object.date_time|date:"M d, Y"}}</span>
+        </p>
+        <img src="{{object.image.url}}" class="img-fluid my-3" alt="">
+        <p>{{object.body|safe}}</p>
+
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <p class="h2">Comments <span class="badge badge-primary"> {{comments.count}}</span></p>
+                {% if user.is_authenticated %}
+                <form class="my-3" action="{% url 'blog_detail' slug=object.slug %}" method="post">
+                    {% csrf_token %}
+                    {{commentForm|crispy}}
+                    <button class="btn btn-primary" type="submit">Comment</button>
+                </form>
+                {% endif %}
+                {% for comment in comments %}
+                <div class="bg-light rounded px-4 py-1 my-1">
+                    <span class="h6">{{comment.user}}</span>
+                    <span class="text-muted float-right">{{comment.date_time|date:"M d, Y" }}</span>
+                    <p>{{comment.comment}}</p>
+                </div>
+                {%empty%}
+                <p class="lead text-center">No Comments Here</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

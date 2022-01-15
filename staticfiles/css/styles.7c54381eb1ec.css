@@ -1,0 +1,217 @@
+.carousel {
+    margin-bottom: 4rem;
+}
+
+.carousel-caption {
+    bottom: 3rem;
+    z-index: 10;
+}
+
+.carousel-item {
+    height: 100vh;
+}
+
+.carousel-item>img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 100%; 
+}
+
+
+.marketing .col-lg-4 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.marketing h2 {
+    font-weight: 400;
+}
+
+.marketing .col-lg-4 p {
+    margin-right: .75rem;
+    margin-left: .75rem;
+}
+
+
+
+.featurette-divider {
+    margin: 5rem 0;
+}
+
+.featurette-heading {
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -.05rem;
+}
+
+
+
+@media (min-width: 40em) {
+
+    .carousel-caption p {
+        margin-bottom: 1.25rem;
+        font-size: 1.25rem;
+        line-height: 1.4;
+    }
+
+    .featurette-heading {
+        font-size: 50px;
+    }
+}
+
+@media (min-width: 62em) {
+    .featurette-heading {
+        margin-top: 7rem;
+    }
+}
+
+.bg-image .welcome {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    background: url("https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80") no-repeat center center fixed;
+    background-size: cover;
+}
+
+.bg-image .welcome:before {
+    position: absolute;
+    z-index: 0;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: .9;
+    background: #212529;
+}
+
+@media (max-width: 991.98px) {
+    .bg-image .welcome {
+        height: auto;
+    }
+
+    .bg-image .welcome .header-social-icons {
+        display: none;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .bg-image .welcome {
+        height: auto;
+    }
+
+    .bg-image .welcome .inner-wrapper {
+        padding-top: 4.5rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 400px) {
+    .bg-image .welcome .welcome-heading {
+        font-size: 2.415rem;
+    }
+}
+
+.bg-image .welcome .iphone-mockup {
+    max-width: 85%;
+}
+
+.bg-image .section-title {
+    position: relative;
+}
+
+.bg-image .section-title:after {
+    content: '';
+    width: 30px;
+    height: 2px;
+    background: #17c671;
+    position: absolute;
+    left: 50%;
+    margin-left: -15px;
+    bottom: -20px;
+}
+
+.bg-image .section-title.underline--left:after {
+    left: 0;
+    margin-left: 0;
+}
+
+.bg-image .app-screenshot {
+    background: url("https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80") no-repeat center center fixed;
+    background-size: cover;
+}
+
+.bg-image .app-screenshot:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #e9ecef;
+    opacity: .6;
+}
+
+.bg-image .app-screenshot img {
+    max-width: 300px;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 100%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    box-shadow: 0 13px 25px rgba(0, 0, 0, 0.05), 0 60px 100px rgba(192, 192, 192, 0.5);
+}
+
+@media (max-width: 991.98px) {
+    .bg-image .app-screenshot img {
+        display: table;
+        position: static;
+        -webkit-transform: translate(0);
+        transform: translate(0);
+        margin: 0 auto;
+    }
+}
+
+.bg-image .feature .icon {
+    border-radius: 50%;
+    min-width: 65px;
+    height: 65px;
+    line-height: 65px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(33, 37, 41, 0.1), 0 7px 14px rgba(33, 37, 41, 0.1);
+    font-size: 27px;
+}
+
+@media (max-width: 767.98px) {
+    .bg-image .feature .icon {
+        margin-right: 1.5rem !important;
+    }
+}
+
+.bg-image .blog .card-img-top {
+    height: 100%;
+}
+
+.bg-image .section {
+    border-bottom: 1px solid #eaebed;
+}
+
+.bg-image .section-invert {
+    background: #f9fafc;
+}
+
+.bg-image .testimonials .avatar {
+    max-width: 80px;
+    overflow: hidden;
+}
+
+@media (max-width: 767.98px) {
+
+    .bg-image .subscribe input,
+    .bg-image .subscribe button {
+        width: 100%;
+    }
+}

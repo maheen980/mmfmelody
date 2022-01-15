@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block page_title %}Contact Us{% endblock page_title %}
+{% block meta_title %}"Contact Us"{% endblock meta_title %}
+{% block twitter_title %}"Contact Us"{% endblock twitter_title %}
+{% block og_title %}"Contact Us"{% endblock og_title %}
+
+{% block meta_description %}"{{config.description}}"{% endblock meta_description %}
+{% block twitter_description %}"{{config.description}}"{% endblock twitter_description %}
+{% block og_description %}"{{config.description}}"{% endblock og_description %}
+
+{% block meta_author %}"{{config.author}}"{% endblock meta_author %}
+
+{% block keywords %}"{{config.keywords}}"{% endblock keywords %}
+
+{% block og_url %}{{config.url}}{{request.path}}{% endblock og_url %}
+{% block twitter_url %}{{config.url}}{{request.path}}{% endblock twitter_url %}
+
+{% block twitter_image %}{{config.favicon.url}}{% endblock twitter_image %}
+{% block og_image %}{{config.favicon.url}}{% endblock og_image %}
+
+{% block og_sitename %}{{config.title}}{% endblock og_sitename %}
+{% block canonical_url %}{{config.url}}{{request.path}}{% endblock canonical_url %}
+
+{% block content %}
+<div class="row my-4">
+    <div class="col-md-6 d-flex justify-content-center my-2">
+        <img src="{% static 'svg/contact.svg' %}" class="img-fluid" alt="Contact" srcset="">
+    </div>
+    <div class="col-md-6 my-2">
+        <form action="{% url 'contact' %}" method="post">
+            {% csrf_token %}
+            <h2>Contact Us</h2>
+            {{form|crispy}}
+            <button class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

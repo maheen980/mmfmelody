@@ -1,0 +1,62 @@
+{% extends "account/base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+<main>
+  <section class="mb-4 mt-4">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 ml-auto mr-auto">
+        <div class="card p-5">
+          <h1>{% trans "Sign Up" %}</h1>
+          <p>
+            {% blocktrans %}Already have an account? Then please
+            <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}
+          </p>
+          <p>Before You Signup:</p>
+          <ol>
+            <li>All the content should be grammatically correct and plagiarism free</li>
+            <li>If we have to face any copyright issue, your profile will be blocked or you may be fined</li>
+            <li>Google search engine optimization should be priortised, so that it may be beneficial for you.</li>
+          </ol>
+          <form class="row g-3" id="signup_form" enctype="multipart/form-data" method="post"
+            action="{% url 'account_signup' %}">
+            {% csrf_token %}
+            <div class="col-sm-4">
+              {{form.first_name|as_crispy_field}}
+            </div>
+            <div class="col-sm-4">
+              {{form.last_name|as_crispy_field}}
+            </div>
+            <div class="col-sm-4">
+              {{form.username|as_crispy_field}}
+            </div>
+            <div class="col-sm-12">
+              {{form.email|as_crispy_field}}
+            </div>
+            <div class="col-sm-6">
+              {{form.password1|as_crispy_field}}
+            </div>
+            <div class="col-sm-6">
+              {{form.password2|as_crispy_field}}
+            </div>
+            <div class="col-sm-12">
+              {{form.bio|as_crispy_field}}
+            </div>
+            <div class="col-sm-12">
+              {{form.image|as_crispy_field}}
+            </div>
+            {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+            <button class="btn btn-primary" type="submit">
+              {% trans "Sign Up" %} &raquo;
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}
