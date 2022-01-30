@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     # 'allauth.socialaccount.providers.facebook',
     # 'allauth.socialaccount.providers.github',
      'allauth.socialaccount.providers.google',
+     'allauth.socialaccount.providers.facebook',
 
     'import_export',
     'crispy_forms',
