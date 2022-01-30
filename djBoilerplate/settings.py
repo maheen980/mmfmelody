@@ -98,7 +98,7 @@ DATABASES = {
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
-    'social_core.backends.google.googleOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
 ]
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '1022095225197-j3vqv8cv2h4s9u830461ebo4mkt50usr.apps.googleusercontent.com'
