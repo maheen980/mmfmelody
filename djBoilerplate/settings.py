@@ -102,6 +102,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '1022095225197-j3vqv8cv2h4s9u830461ebo4mkt50usr.apps.googleusercontent.com'
+                                
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
 
 AUTH_PASSWORD_VALIDATORS = [
