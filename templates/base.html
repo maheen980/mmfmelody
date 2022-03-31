@@ -8,7 +8,7 @@
   <title>
     {% block page_title %}{{config.title}}{% endblock page_title %}
   </title>
- <meta name="propeller" content="4222e91f6d8d2d64b27af844d517fe5f">
+
   
   <meta name="google-site-verification" content="_UO5QgfH2efYGJ3c_HlZtxyjMuTnD-PE6S1a1It69YQ" />
   <link rel="manifest" href="{% static 'manifest.json' %}" />
@@ -19,15 +19,6 @@
   <meta name="keywords" content={% block keywords %}{% endblock keywords %} />
   <link rel="canonical" href="{% block canonical_url %}{% endblock canonical_url %}" />
   
-  <!-- Global site tag (gtag.js) - Google Analytics moon-->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G41K4KMCZ2"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-G41K4KMCZ2');
-</script>  
   
   <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JMP7E0BR4S"></script>
